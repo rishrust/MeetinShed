@@ -1,0 +1,70 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Meetings</title>
+    <link rel="stylesheet" href="{% static '/home/css/bodystyle.css' %}">
+</head>
+
+<body style="background-color: #937DC2;">
+    <div class="meeting_service">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 offset-md-1">
+                    <div class="titlepage">
+
+                        <h2 style="text-decoration: black underline; color:rgb(87, 54, 12);">My Meetings</h2>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {%for meeting in mymeetings reversed%}
+
+
+                <div class="col-md-4">
+                    <div id="serv_hover" class="services_box"
+                        style="max-height: 700px; width: 750px;padding-left: 50px; border: 2px solid black; border-radius: 20px; background-color:#35faf3;">
+                        <h3> <span style="font-weight: bold;">Meeting Title - </span><span
+                                style="margin-left: 40px;">{{meeting.title}}</span><br>
+                            <hr style="border: 1px solid #8758FF;">
+                            <h3> <span style="font-weight:bold;">Description </span><span
+                                    style="margin-left: 40px;">{{meeting.description}}</span> <br>
+                                <hr style="border: 1px solid #8758FF;">
+                                <h3> <span style="font-weight:bold;">Date and Time -</span><span
+                                        style="margin-left: 40px;">{{meeting.time_slot}}</span> <br>
+                                    <hr style="border: 1px solid #8758FF;">
+                                    {%if meeting.is_accepted is True%}
+                                    <h3> <span style="font-weight:bold;">Participant Name -</span><span
+                                            style="margin-left: 40px;">{{meeting.participant_name}}</span><br>
+                                        <hr style="border: 1px solid #8758FF;">
+                                        <h3> <span style="font-weight:bold;">Participant Email -</span><span
+                                                style="margin-left: 40px;">{{meeting.participant_email}}</span><br>
+                                            <hr style="border: 1px solid #8758FF;">
+                                            <h3> <span style="font-weight:bold;">Participant Notes -</span><span
+                                                    style="margin-left: 40px;">{{meeting.participant_notes}}</span><br>
+                                                <hr style="border: 1px solid #8758FF;;">
+
+                                                {%else%}
+                                                <h3> <span style="font-weight:bold;">Awaitaing Status</span>
+                                                    {%endif%}
+                                                    <h3> <span style="font-weight:bold; text-decoration:underline;">Share Link: </span><br><br><span
+                                                            class="new_url" style="color: #e35050; text-decoration:underline;">{{meeting.join_url}}</span> <br>
+                                                        <hr style="border: 1px solid #8758FF;">
+                                                        <a href="{{meeting.start_url}}"><input type="button"
+                                                                value="Join"
+                                                                style="height:40px; width: 80px; background-color: white;border-radius:10px; position:relative; font-size: 20px;"><br></a>
+                                                    </h3>
+                    </div>
+
+                    <hr style="border: 4px solid black; margin-top: 10px;">
+                    {% endfor %}
+
+                </div>
+</body>
+
+</html>

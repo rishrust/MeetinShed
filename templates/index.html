@@ -1,0 +1,396 @@
+{%load static%}
+<head>
+   <!-- basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- mobile metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- site metas -->
+   <title>MeetinShed</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- bootstrap css -->
+   <link rel="stylesheet" href="{% static 'home/css/bootstrap.min.css' %}">
+   <!-- style css -->
+   <link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+   <!-- Responsive-->
+   <link rel="stylesheet" href="{% static 'home/css/responsive.css' %}">
+   <link rel="stylesheet" href="{% static 'form.css' %}">
+   <!-- fevicon -->
+   <link rel="icon" href="{% static 'home/images/fevicon.png' %}" type="image/gif">
+   <!-- Scrollbar Custom CSS -->
+   <link rel="stylesheet" href="{% static 'home/css/jquery.mCustomScrollbar.min.css' %}">
+   <!-- Tweaks for older IEs-->
+   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+      media="screen">
+      <link rel="stylesheet" href="{% static 'home/css/footstyle.css' %}">
+
+   <link rel="stylesheet" href="{% static 'home/css/bodystyle.css' %}">
+   <!--[if lt IE 9]>
+
+      
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+
+<body class="main-layout">
+   <!-- loader  -->
+
+   <!-- end loader -->
+   <!-- header -->
+   <header>
+      <!-- header inner -->
+      <div class="header">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                  <div class="full">
+                     <div class="center-desk">
+                        <div class="logo">
+                           <a href="#"><img src="{% static 'home/images/MeetinShed.png'%}" style="height: 400px;" alt="#"
+                                 style="height:200px; width:200px;"></a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                  <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
+                        aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                     </button>
+                     {% if not user.is_authenticated %}
+                
+                     <div class="collapse navbar-collapse" id="navbarsExample04">
+                        <ul class="navbar-nav mr-auto">
+                           
+                           <li class="nav-item">
+                              <a class="nav-link" href="login">Login</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" href="register">Register</a>
+
+
+                           </li>
+                        </ul>
+
+                     </div>
+                     {%endif%}
+                  </nav>
+                  {% if user.is_authenticated %}
+                  <div class="dropdown">
+                     <button class="dropbtn">My Profile</button>
+                     <div class="dropdown-content">
+                        <div class="h-items" style=" border: 1px solid rgb(52, 51, 51); height: 60px;">{{firstname}}</div>
+                        <div class="h-items" style=" border: 1px solid rgb(52, 51, 51); height: 60px;">{{lastname}}</div>
+                        <div class="h-items" style=" border: 1px solid rgb(52, 51, 51); height: 60px;">{{email}}</div>
+                        <div class="h-items" style=" border: 1px solid rgb(52, 51, 51); height: 60px;">{{username}}</div>
+                        <div><a href="mymeetings"><input type="button" value="My Meetings" class="my_meetings" style="height: 60px; width: 100%; text-decoration:underline; border: none;"></a></div>
+                        <button type="submit"><a href="logout">Log Out</a></button>
+                     </div>
+                  </div>
+                  {%endif%}
+               </div>
+            </div>
+         </div>
+      </div>
+   </header>
+   <!-- end header inner -->
+   <!-- end header -->
+   <!-- banner -->
+   <a href=""><section class="banner_main"></a>
+      <div id="banner1" class="carousel slide" data-ride="carousel">
+
+         <div class="loader_bg" style="display: none;">
+            <div class="loader"><img src="{% static 'home/images/loading.gif' %}" alt=""></div>
+         </div>
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <div class="container">
+                  <div class="carousel-caption">
+                     <div class="row d_flex">
+                        <div class="col-md-6">
+                           <div class="text-bg">
+                              <h1>Welcome to <br>Meetinshed</h1>
+                              <p>Welcome to India’s most used video-meeting platform
+                                 Where you can schedule or attend meetings instantly</p>
+
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="text_img">
+                              <figure>
+                                 <img src="{% static 'home/images/4.png' %}" alt="#">
+                                 <h3></h3>
+                              </figure>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <a class="carousel-control-prev" href="#banner1" role="button" data-slide="prev">
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+         </a>
+         <a class="carousel-control-next" href="#banner1" role="button" data-slide="next">
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+         </a>
+      </div>
+   </section>
+   <div class="sub-container1" style="display:flex;">
+    <!-- schedule Meeting -->
+      {% if user.is_authenticated %}
+      <div class="dropbox1">
+         <h3>Schedule Meeting</h3>
+         <form name="form" method="POST" action="create_meeting">
+            {%csrf_token%}
+            <div><input type="text" name="meet_title" class="meet_title" placeholder="Meeting Title" required></div>
+            <div><input type="text" name="description" class="des" placeholder="Description" required></div>
+            <div><input type="datetime-local" name="time_slot" id="time" required></div>
+            <a href="create_meeting"><input type="submit" value="Schedule Meeting" name="Submit" style="background:rgb(0, 132, 255); color:white; height:60px; width: 190px; border: 1px solid black; border-radius:15px; font-size:20px; font-weight:400;"></a>
+         </form>
+      
+      </div>
+   <!-- Join Meeting -->
+   {% else %}
+   <a href="register"><input type="button" value="Schedule Meetings" name=""
+         style="height: 90px; width: 400px; background-color: blue; font: size 40px; color: white; border-radius: 20px; position:relative; top: 300px; left: 1000px; text-decoration: none; "></a>
+   {%endif%}
+   <div class="joinbox">
+      <h3>Join Meeting</h3>
+      <form name="form" method="POST" action="joinmeeting">
+         {%csrf_token%}
+         <div class="cont_text"><input type="text" placeholder="Enter Your Link" name="joinurl" id="enterLink"></div>
+
+         <div><input type="text" name="participant" id="join_name" placeholder="Enter Name" required></div>
+         <div><input type="email" name="email" id="join_email" placeholder="Enter email Address" required></div>
+         <div><input type="text" name="notes" id="notes" placeholder="Notes" required></div>
+   
+         <a href="joinmeeting"><button type="submit" id="join-btn">Join</button></a>
+      </form>
+   </div>
+   </div>
+      
+   <!-- services -->
+   {% if not user.is_authenticated %}
+   <div class="services" style="margin-top: 200px;">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-10 offset-md-1">
+               <div class="titlepage">
+                  <h2>Schedule and Attend Your all Meetings on MeetinShed</h2>
+                  <p>Here is step by step process of how you can schedule or attend your all meetings on MeetinShed.It
+                     is very easy and convenient to use MeetinShed.Use MeetinShed for doing your all thing at one place.
+                  </p>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-4">
+               <div id="serv_hover" class="services_box">
+                  <i><img src="{% static 'home/images/schedule.png' %}" alt="#" style="position:relative; bottom: 50px;"></i>
+                  <!-- <h3>Schedule Your Meeting by Selecting </h3> -->
+                  <h3>Schedule Your Meeting</h3>
+                  <a class="right_irro" href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div id="serv_hover" class="services_box">
+                  <i><img src="{% static 'home/images/share.png' %}" alt="#" style="position:relative; bottom: 50px;"></i>
+                  <h3>Share Link</h3>
+                  <a class="right_irro" href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+               </div>
+            </div>
+            <div class="col-md-4">
+               <div id="serv_hover" class="services_box">
+                  <i><img src="{% static 'home/images/link.png' %}" alt="#" style="position:relative; bottom: 50px;"></i>
+                  <h3>Join Meeting</h3>
+                  <a class="right_irro" href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- end services -->
+   <!-- New Ideas  section -->
+   <div class="ideas">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-10">
+               <div class="titlepage">
+                  <h2> Technologies used in MeetinShed</h2>
+                  
+               </div>
+            </div>
+         </div>
+         <div class="border_trbl">
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="ideas_box">
+                     <h3>Web <br> Tech</h3>
+                     <p>HTML, CSS <br> Javascript</p>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="ideas_box">
+                     <h3>Django</h3>
+                     <p>Python <br>Django</p>
+                  </div>
+               </div>
+               <div class="col-md-4">
+                  <div class="ideas_box">
+                     <h3>APIs</h3>
+                     <p>Zoom API</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- end New Ideas  section -->
+   <!-- testimonial -->
+   <div class="testimonial">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="titlepage">
+                  <h2>Developers</h2>
+                  
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-6 ">
+               <div class="test_box margin_bottom">
+                  <p> I build MeetinShed backend using python and Django.
+                     Also, I used Zoom API in it .
+                     </p>
+                  <div class="test_icon">
+                     <i><img src="{% static 'home/images/Rishabh.png' %}" style="height: 50px; width: 50px;" alt="#"></i>
+                     <a href="https://www.linkedin.com/in/rishabh-singh-419a48220"><h4>Rishabh Singh <br> <span class="yellow"></span></h4></a>
+                  </div>
+               </div>
+            </div>
+
+            <div class="col-md-6">
+               <div class="test_box">
+                  <p>I Build MeetinShed frontend using HTML, CSS and Javascript.
+                     I build this with my all knowledge and dedication I have.
+                     Hope you liked it.
+                     </p>
+                  <div class="test_icon">
+                     <i><img src="{% static 'home/images/Gaurav.png' %}" style="height: 50px; width: 50px;"  alt="#"></i>
+                     <a href="https://www.linkedin.com/in/gaurav-pathak-b80992251/"><h4>Gaurav Pathak<br> <span class="yellow"></span></h4></a>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-6 ">
+               <div class="test_box margin_bottom">
+                  <p>I Build MeetinShed frontend using HTML, CSS and Javascript .
+                     Also I used Canva for Designing of the MeetinShed.
+                     I went through my all knowledge and deliver the best I can. 
+                     Hope you liked the designing part of Meetinshed.
+                     </p>
+                  <div class="test_icon">
+                     <i><img src="{% static 'home/images/Shivang.png' %}" style="height: 50px; width: 50px;"  alt="#"></i>
+                     <a href="https://www.linkedin.com/in/shivang21007/"><h4>Shivang Gupta <br> <span class="yellow"></span></h4></a>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+   {%endif%}
+   <!-- end testimonial -->
+  
+               <!-- Javascript files-->
+               <!-- <script src="js/jquery.min.js"></script> -->
+
+                     <!-- start footer -->
+                     <footer class="footer-08" style="margin-top: 200px;">
+                        <div class="container-fluid px-lg-5">
+                           <div class="row">
+                              <div class="col-md-9 py-5">
+                                 <div class="row">
+                                    <div class="col-md-4 mb-md-0 mb-4">
+                                       <h2 class="footer-heading">About us</h2>
+                                       <p>Welcome to India’s most used video-meeting platform
+                                       Where you can schedule or attend meetings instantly</p>
+                                    </div>
+                                    <div class="col-md-8">
+                                       <div class="row justify-content-center">
+                                          <div class="col-md-12 col-lg-9">
+                                             <div class="row">
+                                               
+                                                <div class="col-md-4 mb-md-0 mb-4">
+                                                   <h2 class="footer-heading">Our social Media</h2>
+                                                   <ul class="list-unstyled">
+                                                      <li><a href="https://www.linkedin.com/in/shivang21007" class="py-1 d-block">Linkedin</a></li>
+                                                      <li><a href="www.instagram.com/iamshivang___/" class="py-1 d-block">Instagram</a></li>
+                                                      <li><a href="#" class="py-1 d-block">Facebook</a></li>
+                                                      <li><a href="wa.me/919555478159" class="py-1 d-block">Whatsapp</a></li>
+                                                   </ul>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="row mt-md-5">
+                                    <div class="col-md-12">
+                                       <p class="copyright">
+                                          
+                                          Copyright &copy;
+                                          <script>document.write(new Date().getFullYear());</script> All rights reserved |<i class="ion-ios-heart" aria-hidden="true"></i> by <a href="#"
+                                             target="_blank">MeetinShed</a>
+                                          
+                                       </p>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-md-3 py-md-5 py-4 aside-stretch-right pl-lg-5">
+                                 <h2 class="footer-heading footer-heading-white">Contact us</h2>
+                                 <form action="#" class="contact-form">
+                                    <div class="form-group">
+                                       <input type="text" class="form-control" placeholder="Your Name">
+                                    </div>
+                                    <div class="form-group">
+                                       <input type="text" class="form-control" placeholder="Your Email">
+                                    </div>
+                                    <div class="form-group">
+                                       <input type="text" class="form-control" placeholder="Subject">
+                                    </div>
+                                    <div class="form-group">
+                                       <textarea name="" id="" cols="30" rows="3" class="form-control" placeholder="Message"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                       <button type="submit" class="form-control submit px-3">Send</button>
+                                    </div>
+                                 </form>
+                              </div>
+                           </div>
+                        </div>
+                    
+
+               <script src="{% static 'home/js/popper.min.js'%}"></script>
+
+               <script src="{% static 'home/js/bootstrap.bundle.min.js' %}"></script>
+               <script src="{% static 'home/js/jquery-3.0.0.min.js' %}"></script>
+               <!-- sidebar -->
+               <script src="{% static 'home/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+               <script src="{% static 'home/js/custom.js' %}"></script>
+
+
+               </footer>
+
+            <!-- end footer -->
+
+</body>
+
+</html>

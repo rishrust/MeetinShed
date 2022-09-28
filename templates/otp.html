@@ -1,0 +1,35 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification</title>
+</head>
+
+<body style="background: #111D5E;">
+    <div
+        style="border: 2px solid black; height: 350px; width:300px; background: #FFD1D1; font-size: 20px; border-radius: 10px; padding: 50px; margin-top: 100px; margin-left:400px; Z-index: 9; font-family: 'Smooch', cursive; color: #495057;">
+        <h5 class="m-0" style="position:relative; bottom: 50px; color: #cd5c5c; text-decoration:underline;">otp
+            verification</h5>
+        <span style="color: #2b2424;font-size: 15px; position:relative; bottom: 70px;"><b>Enter the code we just sent on
+                your mail</b></span>
+        <form action="" method="POST">
+            {%csrf_token%}
+            {%for message in messages%}
+            <h2 style="color:#cd5c5c; font-size: 20px; font-family: 'Smooch', cursive; position: relative; bottom: 50px;">{{message}}</h2>
+            {% endfor %}
+
+            <label for="otp">Enter OTP:</label>
+            <input type="text" name="userotp" id="otp" required><br>
+            <button type="submit"
+                style="height: 50px; width: 100px; background-color:rgb(0, 140, 255); border-radius: 10px; color: white; margin-top: 40px; font-size: 20px;">Submit</button>
+        </form>
+
+    </div>
+
+</body>
+
+</html>

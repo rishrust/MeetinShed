@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    
+</head>
+
+<body>
+    <nav class="navbar">
+
+    </nav>
+    <div class="lcontainer">
+        <div class="cred">
+            <h1>Welcome Back</h1><br>
+            <p>Log in to your account to get back to your hub for <br>
+                scheduling meetings.</p>
+            <form action="" method="post">
+                {%csrf_token%}
+                <label for="name">User Name</label><br>
+                <input type="text" name="meet_title" id="name" required><br>
+                des
+                <input type="text" name="description" id="name" required><br>
+                time  
+                <label for="time">Time</label><br>
+                <div class="date">
+                    <input type="datetime-local" name="time_slot" ><br>
+
+                </div>
+                <input type="button" value="add" class="add">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div class="limg">
+
+        </div>
+    </div>
+</body>
+
+</html>
