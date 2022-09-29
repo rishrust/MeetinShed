@@ -129,7 +129,7 @@ def otp_ver(request):
         messages.info(request,"Check Your Spam Folder For Otp")
         return render(request,'otp.html')
     else:
-        return redirect("home")
+        return redirect("otp_verification")
 
 
 
