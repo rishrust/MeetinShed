@@ -7,13 +7,13 @@ uses DJANGO as backend support
 can be deployed on your local system
   
   
- set local environment
- pip install pipenv
- go to local directory then
- pipenv shell
- pip install 
- pip install -r requirements.txt
- python manage.py runserver
- go to local server and run program
+ **set local environment
+ **pip install pipenv
+ **go to local directory then
+ **pipenv shell
+ **pip install 
+ **pip install -r requirements.txt
+ **python manage.py runserver
+ **go to local server and run program
   
  If any problem feel free to contavct me at rishabhsinghcomp@gmail.com
