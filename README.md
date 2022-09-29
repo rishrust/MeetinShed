@@ -7,7 +7,7 @@ THis project was made by me and my teammates as a submisiion to hackathon
   can be deployed on your local system
   
   
-  >>>>set local environment
+  set local environment
   >pip install pipenv
   go to local directory then
   >pipenv shell
