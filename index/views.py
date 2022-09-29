@@ -22,20 +22,22 @@ def home(request):
 
 
 #####################FOR LOGIN REGISTER LOGOUT#########################
-username=""
-firstname=""
-lastname=""
-otp=""
-email=""
-password=""
+#STUPID OTP METHOD
+# username=""
+# firstname=""
+# lastname=""
+# otp=""
+# email=""
+# password=""
 
 def register(request):
-    global username
-    global firstname
-    global lastname
-    global otp
-    global email
-    global password
+    #STUPID OTP METHOD
+    # global username
+    # global firstname
+    # global lastname
+    # global otp
+    # global email
+    # global password
     if request.method=='POST':
         if request.POST['password']==request.POST['passwordr']:
             
@@ -54,16 +56,18 @@ def register(request):
             else: #### we will check if email exists or not
                 email_status=email_server.is_email_exists(email)
                 if email_status=="True":
-                    global otp
                     otp=email_server.create_otp(email)
+
+                    otpfile=open("otp.txt","w+")
+                    otpfile.write(otp+"\n")
+                    otpfile.write(username+"\n")
+                    otpfile.write(firstname+"\n")
+                    otpfile.write(lastname+"\n")
+                    otpfile.write(password+"\n")
+                    otpfile.write(email+"\n")
+                    otpfile.close()
                     return redirect('otp_verification')
                     
-                    #if emailverific=="verified":
-                        #return redirect('register/otp_verification')
-                        #user=User.objects.create_user(username=username,password=password,email=email,first_name=firstname,last_name=lastname)
-                        #user.save()##creating sving objects
-                        #messages.info(request,"Account Created\n Login To Continue")
-                        #return redirect('login')
                 else:
                     messages.info(request,"Enter a Valid Email Address")
                     return redirect('register')
@@ -100,14 +104,23 @@ def login(request):
 
 
 def otp_ver(request):
-    global username
-    global firstname
-    global lastname
-    global otp
-    global email
-    global password
-    if otp!="":
+    #STUPID OTP METHOD
+    # global username
+    # global firstname
+    # global lastname
+    # global otp
+    # global email
+    # global password
+    otpfile=open("otp.txt","r") 
+    otp=(otpfile.readline()).rstrip("\n")
     
+    if otp!="":
+        username=(otpfile.readline()).rstrip("\n")
+        firstname=(otpfile.readline()).rstrip("\n")
+        lastname=(otpfile.readline()).rstrip("\n")
+        password=(otpfile.readline()).rstrip("\n")
+        email=(otpfile.readline()).rstrip("\n")
+        otpfile.close()
         print(otp)
         if request.method=="POST":
             userotp=request.POST["userotp"]
@@ -115,21 +128,24 @@ def otp_ver(request):
             if otp == userotp:
                 user=User.objects.create_user(username=username,password=password,email=email,first_name=firstname,last_name=lastname)
                 user.save()##creating sving objects
-                username=""
-                firstname=""
-                lastname=""
-                otp=""
-                email=""
-                password=""
+                # username=""
+                # firstname=""
+                # lastname=""
+                # otp=""
+                # email=""
+                # password=""
+                otpfile=open("otp.txt","w+")
+                otpfile.close() ##cleanign otpfile
+                 
                 messages.info(request,"Login To Continue")
                 return redirect("login")
             else:
                 messages.info(request,"Wrong OTP")
                 render(request,'otp.html')
-        messages.info(request,"Check Your Spam Folder For Otp")
+
         return render(request,'otp.html')
     else:
-        return redirect("otp_verification")
+        return redirect("home")
 
 
 
