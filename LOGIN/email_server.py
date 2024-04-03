@@ -23,7 +23,7 @@ def create_otp(user):
     #adding TLS security 
     server.starttls()
     #get your app password of gmail ----as directed in the video
-    password='edpfqelfnxcuszaz'
+    password='pass_key'
     server.login(email,password)
     #generate OTP using random.randint() function
     otp=''.join([str(random.randint(0,9)) for i in range(4)])
