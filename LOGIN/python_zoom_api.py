@@ -5,10 +5,10 @@ from time import time
 
 zoom_credential={"starturl":"","joinurl":"",}
 def create_schedule(title,starttime):
-    API_KEY = 'zysvMJnXQWOvKmO0rMDDRQ'
-    API_SEC = 'nucNRz0aO9CFeLUgIXIm2yWFRfPrzGrb25jz'
+    API_KEY = ''
+    API_SEC = ''
 
-    meetingId = 83781439159
+    meetingId = 11
 
 
     def generateToken():
