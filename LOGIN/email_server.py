@@ -46,7 +46,7 @@ def meeting_generated(user_email,title,date,share_link):
     #adding TLS security 
     server.starttls()
     #get your app password of gmail ----as directed in the video
-    password='edpfqelfnxcuszaz'
+    password='pass_key'
     server.login(email,password)
     #generate OTP using random.randint() function
     
@@ -65,7 +65,7 @@ def meetingconformed(user_email,meeting_details):
     #adding TLS security 
     server.starttls()
     #get your app password of gmail ----as directed in the video
-    password='edpfqelfnxcuszaz'
+    password='pass_key'
     server.login(email,password)
     #generate OTP using random.randint() function
     msg="Your Meeting "+str(meeting_details["title"])+' on '+meeting_details["date"]+"is accepted by "+meeting_details["participant_name"]+"\n\n"+"\n\n This meeting was conformed by "+meeting_details["participant_mail"]+" on "+str(datetime.now)+"\n\nParticipant Notes"+meeting_details["participant_notes"]+"\n\nThank You For Using MeetinShed"
